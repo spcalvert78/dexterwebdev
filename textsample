@@ -1,1 +1,38 @@
-Sample Text
+Each post will have:
+  postTitle = a title for each post - preferably stated as a question
+  postSubtitle = some basic information about each post - date of original post, tags related to the concepts - postSubtitle
+  postText = text of post - a paragraph which builds interest in the topic by offering something interesting along the way
+  postSource = where the underlying data comes from - list the entity responsible for the data and the date and a link to the source
+  a graphic holder - appears after user input, sets size of graphic and offers a reset button to hide the hide the hide the viz
+  the data visualization
+  graphic - fits inside the graphic holder, is both interesting and useful
+
+Skills needed:
+  experience with web visualization frameworks plotly.js d3.js or linking other frameworks with a website
+  some sort of database and to store and deliver posts
+  experience and tools downloading or referencing large data sets
+
+By end of class, I would like posts that use:
+  various sizes and types of data (small, inside code, user input, large, google doc, api)
+  various types of graphs (bar, time series, heatmap, graphs that move)
+  all three types of analytics (descriptive, predictive, prescriptive)
+
+Potential Questions:
+  how tall are you
+  when do you go to sleep
+  how often do you attend church
+  how far do you live from work
+  what is your opinion about debt
+  how many different cities have you lived in
+  how many servings of veggies do you usually eat per day
+  how long will I live
+  how many facebook friends do you have
+  do you have any spiritual belief
+  what is your favorite holiday
+
+Issues to address:
+  what about links that no longer work
+  how do I show that the most recent post shows first
+  how can I offer readers a chance to upvote or potentially even comment
+    This seems like a feature that adds uneccessary complexity and risk
+    If comment, how do I make sure that comments are not abusive or open the site to malicious behavior

@@ -8,19 +8,19 @@
   </head>
   <body>
     <div class="header">
-      <h1>fun with data</h1> <!-- overall title -->
+      <h1>Fun With Data!</h1> <!-- overall title -->
     </div>
     <div class="row">
       <div class="leftcolumn">
         <div class="card">
-          <h2>What is your favorite color?</h2>
-          <h5>Subheading including date</h5>
-          <p> Our preference for certain colors are part of our uniqueness.
+          <h2 class="postTitle">What is your favorite color?</h2>
+          <h5 class="postSubtitle">January 2019, Color Preferences, First Post</h5>
+          <p class="postText"> Our preference for certain colors is one way we are different from each other.
             Babies start showing this preference as early as 12 weeks old.
             Pyschologists, designers, and marketers world-wide study the preferences
             and associations we have with color to understand more about those they want to impact.
             Choose your favorite color and see how that compares to what other people prefer.</p>
-          <h5>
+          <h5 class="postSource">
           <a href="https://d25d2506sfb94s.cloudfront.net/cumulus_uploads/document/isk2e1087u/tabs_OPI_color_20141027%20(2).pdf">Source: YouGov Study, 2014<br></a>
           </h5>
           <br>
@@ -36,17 +36,29 @@
           <button class="button buttonwhite" onclick="showviz(); makegraph()">white</button>
           <button class="button buttonother" onclick="showviz(); makegraph()">other</button>
           <div id="demo" style="display:none; background-color: #aaa; width: 90%; padding: 5px; margin-left: auto; margin-right: auto;">
-            <button type="button" onclick="hideviz()">Reset</button>
+            <!-- <button type="button" onclick="hideviz()">Reset</button> -->
             <div id="myGraph" style="width: 90%; padding: 5px; margin-left: auto; margin-right: auto;">
               <!-- Plotly chart will be drawn inside this DIV -->
             </div>
           </div>
         </div>
         <div class="card">
-          <h2>TITLE HEADING</h2>
-          <h5>Subheading including date</h5>
-          <p>Some text..</p>
-          <div class="fakeimg" style="height:100px;">Image</div>
+          <h2 class="postTitle">What is your birthday?</h2>
+          <h5 class="postSubtitle">January 2019, Birthday Problem</h5>
+          <p>How many people does there need to be in a room before there will be a pair of
+          people with the same birthday? Surprisingly, with just 23 people there is a 50%
+          chance that there will be pair.  At 70 people, the probability increases to 99.9%. This principle
+          in probability theory is called the birthday problem.
+          Generate the heatmap below and find your birthday.  What days of the year stick out and why do you think that is?</p>
+          <h5 class="postSource">
+          <a href="US_births_2000-2014_SSA.csv">Download Source Data: US Births 2000-2014 Social Security Administration<br></a>
+          You can learn more about the birthday problem in this
+          <a href="https://www.youtube.com/watch?v=KtT_cgMzHx8">short video by David Knuffke.</a>
+          </h5>
+          <button class="button buttonother" onclick="makeHeatmap()">Generate Heatmap</button>
+          <div id="myHeatmap" style="width: 100%; padding: 5px; margin-left: auto; margin-right: auto;">
+              <!-- Plotly chart will be drawn inside this DIV -->
+          </div>
         </div>
       </div>
       <div class="rightcolumn">

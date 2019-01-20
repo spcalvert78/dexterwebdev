@@ -43,7 +43,7 @@ a:active {
 }
 
 h1 {
-  color: black;
+  color: rgb(102, 163, 255);
   font-family: verdana;
   font-size: 125%;
   padding: 1px;
@@ -51,6 +51,14 @@ h1 {
 }
 
 h2 {
+  color: rgb(102, 163, 255);
+  font-family: verdana;
+  font-size: 110%;
+  padding: 1px;
+  margin: 1px;
+}
+
+.postTitle {
   color: rgb(102, 163, 255);
   font-family: verdana;
   font-size: 110%;
@@ -67,6 +75,22 @@ h3 {
 }
 
 h5 {
+  color: black;
+  font-family: verdana;
+  font-size: 80%;
+  padding: 1px;
+  margin: 1px;
+}
+
+.postSubtitle {
+  color: lightgrey;
+  font-family: verdana;
+  font-size: 80%;
+  padding: 1px;
+  margin: 1px;
+}
+
+.postSource {
   color: lightgrey;
   font-family: verdana;
   font-size: 80%;
@@ -75,6 +99,13 @@ h5 {
 }
 
 p {
+  color: black;
+  font-family: verdana;
+  font-size: 80%;
+  margin: 5px;
+}
+
+.postText {
   color: black;
   font-family: verdana;
   font-size: 80%;
