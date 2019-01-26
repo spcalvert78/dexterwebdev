@@ -3,12 +3,15 @@
   <head>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="script.js"></script>
   </head>
   <body>
     <div class="header">
-      <h1>Fun With Data!</h1> <!-- overall title -->
+      <h1>You Are Here</h1> <!-- overall title -->
     </div>
     <div class="row">
       <div class="leftcolumn">
@@ -24,19 +27,18 @@
           <a href="https://d25d2506sfb94s.cloudfront.net/cumulus_uploads/document/isk2e1087u/tabs_OPI_color_20141027%20(2).pdf">Source: YouGov Study, 2014<br></a>
           </h5>
           <br>
-          <button class="button buttonred" onclick="showviz(); makegraph()">red</button>
-          <button class="button buttonpink" onclick="showviz(); makegraph()">pink</button>
-          <button class="button buttonorange" onclick="showviz(); makegraph()">orange</button>
-          <button class="button buttonyellow" onclick="showviz(); makegraph()">yellow</button>
-          <button class="button buttongreen" onclick="showviz(); makegraph()">green</button>
-          <button class="button buttonblue" onclick="showviz(); makegraph()">blue</button>
-          <button class="button buttonpurple" onclick="showviz(); makegraph()">purple</button>
-          <button class="button buttonblack" onclick="showviz(); makegraph()">black</button>
-          <button class="button buttonbrown" onclick="showviz(); makegraph()">brown</button>
-          <button class="button buttonwhite" onclick="showviz(); makegraph()">white</button>
-          <button class="button buttonother" onclick="showviz(); makegraph()">other</button>
+          <button class="button buttonred" onclick="showviz(); makegraph(); scrollToMyViz()">red</button>
+          <button class="button buttonpink" onclick="showviz(); makegraph(); scrollToMyViz()">pink</button>
+          <button class="button buttonorange" onclick="showviz(); makegraph(); scrollToMyViz()">orange</button>
+          <button class="button buttonyellow" onclick="showviz(); makegraph(); scrollToMyViz()">yellow</button>
+          <button class="button buttongreen" onclick="showviz(); makegraph(); scrollToMyViz()">green</button>
+          <button class="button buttonblue" onclick="showviz(); makegraph(); scrollToMyViz()">blue</button>
+          <button class="button buttonpurple" onclick="showviz(); makegraph(); scrollToMyViz()">purple</button>
+          <button class="button buttonblack" onclick="showviz(); makegraph(); scrollToMyViz()">black</button>
+          <button class="button buttonbrown" onclick="showviz(); makegraph(); scrollToMyViz()">brown</button>
+          <button class="button buttonwhite" onclick="showviz(); makegraph(); scrollToMyViz()">white</button>
+          <button class="button buttonother" onclick="showviz(); makegraph(); scrollToMyViz()">other</button>
           <div id="demo" style="display:none; background-color: #aaa; width: 90%; padding: 5px; margin-left: auto; margin-right: auto;">
-            <!-- <button type="button" onclick="hideviz()">Reset</button> -->
             <div id="myGraph" style="width: 90%; padding: 5px; margin-left: auto; margin-right: auto;">
               <!-- Plotly chart will be drawn inside this DIV -->
             </div>
@@ -51,13 +53,28 @@
           in probability theory is called the birthday problem.
           Generate the heatmap below and find your birthday.  What days of the year stick out and why do you think that is?</p>
           <h5 class="postSource">
-          <a href="US_births_2000-2014_SSA.csv">Download Source Data: US Births 2000-2014 Social Security Administration<br></a>
-          You can learn more about the birthday problem in this
-          <a href="https://www.youtube.com/watch?v=KtT_cgMzHx8">short video by David Knuffke.</a>
+            <a href="US_births_2000-2014_SSA.csv">Download Source Data: US Births 2000-2014 Social Security Administration<br></a>
+            You can learn more about the birthday problem in this
+            <a href="https://www.youtube.com/watch?v=KtT_cgMzHx8">short video by David Knuffke.</a>
           </h5>
           <button class="button buttonother" onclick="makeHeatmap()">Generate Heatmap</button>
           <div id="myHeatmap" style="width: 100%; padding: 5px; margin-left: auto; margin-right: auto;">
               <!-- Plotly chart will be drawn inside this DIV -->
+          </div>
+        </div>
+        <div class="card">
+          <h2 class="postTitle">Do you have any kind of spiritual belief?</h2>
+          <h5 class="postSubtitle">January 2019, 3 Circles</h5>
+          <p>According to a study performed by Pew Research, 77% of adults survey say that religion is important in their life.
+            My faith in Christ provides me with a purpose in life and comforts me when I face difficult circumstances.
+            This animated diagram of three circles is a helpful way of understanding what I believe.  Where do you fit in this picture? </p>
+          <h5 class="postSource">
+            <a href="http://www.pewforum.org/religious-landscape-study/importance-of-religion-in-ones-life/">
+            Pew Research, Religious Landscape Study, 2014<br></a>
+          </h5>
+          <button class="button buttonother" onclick="showviz2(); scrollToMyGraph()">Draw 3 Circles</button>
+          <div id="threeCircles" style="display:none; background-color: #aaa; width: 90%; padding: 5px; margin-left: auto; margin-right: auto;">
+            <img src="CirclesJan2019.gif" alt="3 Circles" style="width: 90%">
           </div>
         </div>
       </div>

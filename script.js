@@ -2,6 +2,24 @@ function showviz() {
  document.getElementById("demo").style.display='block';
 }
 
+function scrollToMyViz() {
+  var elmnt = document.getElementById("demo");
+  elmnt.scrollIntoView();
+}
+
+function showviz2() {
+ document.getElementById("threeCircles").style.display='block';
+}
+
+function scrollWin() {
+  window.scrollTo(0, 5000);
+}
+
+function scrollToMyGraph() {
+  var elmnt = document.getElementById("threeCircles");
+  elmnt.scrollIntoView();
+}
+
 function hideviz() {
  document.getElementById("demo").style.display='none';
 }
@@ -128,3 +146,33 @@ for ( var i = 0; i < yValues.length; i++ ) {
 Plotly.newPlot('myHeatmap', data, layout);
 
 }
+
+/*
+setTimeout(function(){
+  let sumOfDigits = 0
+  for (i = 2; i < 101; i += 2) {
+    sumOfDigits += i
+  }
+  document.getElementById('trying').innerHTML = sumOfDigits
+},1000)
+
+setTimeout(function(){
+  let sumOfDigits = 0
+  for (i = 2; i < 101; i += 2) {
+    sumOfDigits += i
+  }
+  $("#trying").text("This is more different")
+},3000)
+
+/*
+var s = document.getElementById('trying');
+let sumOfDigits = 0;
+for (i = 2; i < 101; i += 2) {
+  sumOfDigits += i
+(function(i){
+    window.setTimeout(function(){
+      s.innerHTML = s.innerHTML + sumOfDigits.toString();
+    }, 2000);
+  }(i));
+}
+*/
