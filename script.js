@@ -24,7 +24,11 @@ function hideviz() {
  document.getElementById("demo").style.display='none';
 }
 
-function makegraph() {
+var chosenColor;
+var chosenPct;
+function makegraph(myColor, myPct) {
+ chosenColor = myColor;
+ chosenPct = myPct;
  var trace = {
     x: ['Blue', 'Green', 'Purple', 'Red', 'Black', 'Pink', 'Yellow', 'Orange', 'White', 'Brown','Other'],
     y: [31, 15, 14, 12, 9, 5, 4, 3, 2, 2, 3],
@@ -37,6 +41,19 @@ function makegraph() {
  var layout = {
    autosize: true,
    title: 'Which one of the colors do you like the most?',
+   annotations: [
+    {
+      x: chosenColor,
+      y: chosenPct,
+      xref: 'x',
+      yref: 'y',
+      text: 'you are here',
+      showarrow: true,
+      arrowhead: 70,
+      ax: 0,
+      ay: -40
+    }
+  ],
    xaxis: {
     title: {
       text: 'Most Liked Color',
