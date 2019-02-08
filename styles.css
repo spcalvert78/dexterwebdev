@@ -13,7 +13,7 @@ body {
 }
 
 h1 {
-  color: rgb(102, 163, 255);
+  color: rgb(40, 82, 150);
   font-family: verdana;
   font-size: 125%;
   padding: 1px;
@@ -52,7 +52,7 @@ h1 {
 
 /* A title for each post aka h2*/
 .postTitle {
-  color: rgb(102, 163, 255);
+  color: rgb(40, 82, 150);
   font-family: verdana;
   font-size: 110%;
   padding: 1px;
@@ -61,7 +61,7 @@ h1 {
 
 /* A title for each post aka h5*/
 .postSubtitle {
-  color: lightgrey;
+  color: grey;
   font-family: verdana;
   font-size: 80%;
   padding: 1px;
@@ -72,13 +72,13 @@ h1 {
 .postText {
   color: black;
   font-family: verdana;
-  font-size: 80%;
+  font-size: 100%;
   margin: 5px;
 }
 
 /* a reference to where the data for the post came from aka h5*/
 .postSource {
-  color: lightgrey;
+  color: grey;
   font-family: verdana;
   font-size: 80%;
   padding: 1px;
@@ -86,8 +86,8 @@ h1 {
 }
 
 a:link {color: black;} /* unvisited link */
-a:visited {color: lightgrey;} /* visited link */
-a:hover {color: lightgrey;} /* mouse over link */
+a:visited {color: grey;} /* visited link */
+a:hover {color: grey;} /* mouse over link */
 a:active {color: blue;} /* selected link */
 
 .button {

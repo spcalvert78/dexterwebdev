@@ -164,32 +164,69 @@ Plotly.newPlot('myHeatmap', data, layout);
 
 }
 
-/*
-setTimeout(function(){
-  let sumOfDigits = 0
-  for (i = 2; i < 101; i += 2) {
-    sumOfDigits += i
-  }
-  document.getElementById('trying').innerHTML = sumOfDigits
-},1000)
+var xTimes = [];
+var yTemps =[];
+var weather = [];
 
-setTimeout(function(){
-  let sumOfDigits = 0
-  for (i = 2; i < 101; i += 2) {
-    sumOfDigits += i
-  }
-  $("#trying").text("This is more different")
-},3000)
+function getWeather() {
+  $.ajax({
+    url: 'http://api.openweathermap.org/data/2.5/forecast?q=Wichita+Falls&id=524901&APPID=1e6b93b450b7a0a8169b59124b34994a&units=imperial',
+    type: "GET",
+    success: function(response){
+      weather = response;
+      console.log(weather);
+      for (let i = 0; i<weather.list.length; i++) {
+        yTemps.push(weather.list[i]['main']['temp_max']); // add values to the end of the array;
+        var utcSeconds = weather.list[i]['dt'];
+        var d = new Date(0);
+        d.setUTCSeconds(utcSeconds);
+        xTimes.push(d);
+      }
+    }
+  })
+};
 
-/*
-var s = document.getElementById('trying');
-let sumOfDigits = 0;
-for (i = 2; i < 101; i += 2) {
-  sumOfDigits += i
-(function(i){
-    window.setTimeout(function(){
-      s.innerHTML = s.innerHTML + sumOfDigits.toString();
-    }, 2000);
-  }(i));
+getWeather();
+
+function showWeather() {
+ var trace = {
+    x: xTimes,
+    y: yTemps,
+    //marker:{
+    //color: ['blue', 'green', 'purple', 'red', 'black', 'pink', 'Yellow', 'Orange', 'White', 'Brown','Grey']
+  //};
+    type: 'scatter'
+  };
+ var data = [ trace ];
+ var layout = {
+   autosize: true,
+   title: 'Forecasted Temperature',
+  xaxis: {
+    title: {
+      text: 'Time',
+      font: {
+        family: 'verdana',
+        size: 12,
+        color: '#7f7f7f'
+        }
+    },
+    tickformat: '%a %I%p',
+  },
+  yaxis: {
+    title: {
+      text: 'Temperature',
+      font: {
+        family: 'verdana',
+        size: 12,
+        color: '#7f7f7f'
+      }
+    }
+  }
+ }
+ Plotly.newPlot('myWeatherGraph', data, layout);
 }
-*/
+
+function scrollToMyWeather() {
+  var elmnt = document.getElementById("myWeatherGraph");
+  elmnt.scrollIntoView();
+}

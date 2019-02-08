@@ -3,7 +3,11 @@
   <head>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -11,7 +15,8 @@
   </head>
   <body>
     <div class="header">
-      <h1>You Are Here</h1> <!-- overall title -->
+      <h1>You Are Here <i class="fas fa-map-marker-alt"></i></h1>
+      <h3 style="font-style:italic; font-size: 50%;">Find your place using data</h3>
     </div>
     <div class="row">
       <div class="leftcolumn">
@@ -53,7 +58,7 @@
           in probability theory is called the birthday problem.
           Generate the heatmap below and find your birthday.  What days of the year stick out and why do you think that is?</p>
           <h5 class="postSource">
-            <a href="US_births_2000-2014_SSA.csv">Download Source Data: US Births 2000-2014 Social Security Administration<br></a>
+            <a href="US_births_2000-2014_SSA.csv" style="color:grey">Download Source Data: US Births 2000-2014 Social Security Administration<br></a>
             You can learn more about the birthday problem in this
             <a href="https://www.youtube.com/watch?v=KtT_cgMzHx8">short video by David Knuffke.</a>
           </h5>
@@ -75,6 +80,22 @@
           <button class="button buttonother" onclick="showviz2(); scrollToMyGraph()">Draw 3 Circles</button>
           <div id="threeCircles" style="display:none; background-color: #aaa; width: 90%; padding: 5px; margin-left: auto; margin-right: auto;">
             <img src="CirclesJan2019.gif" alt="3 Circles" style="width: 90%">
+          </div>
+        </div>
+        <div class="card">
+          <h2 class="postTitle">What will the weather be like tomorrow?</h2>
+          <h5 class="postSubtitle">February 2019, Predictive Analytics</h5>
+          <p>Predicting the future is a challenging endeavor. Just ask your local weather man. By using models
+          (what has happened under similar conditions in the past), meteorologists develop predictions about what
+          will happen and assign probabilities to those outcomes.  The goal of someone who makes forecasts
+          is not to be perfectly accurate (they will always fall short of a goal like that), but to minimize the variances between their predictions and the actual outcomes.
+          What do you think the weather will be like in the coming days?  How does your prediction compare to open weather man?</p>
+          <h5 class="postSource">
+            <a href="https://openweathermap.org/">Open weather makes very simple and fast APIs to work with their vast weather database<br></a>
+          </h5>
+          <button class="button buttonother" onclick="showWeather(); scrollToMyWeather()">Show the forecast</button>
+          <div id="myWeatherGraph" style="width: 100%; padding: 5px; margin-left: auto; margin-right: auto;">
+              <!-- Plotly chart will be drawn inside this DIV -->
           </div>
         </div>
       </div>
