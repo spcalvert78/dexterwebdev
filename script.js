@@ -170,7 +170,7 @@ var weather = [];
 
 function getWeather() {
   $.ajax({
-    url: 'http://api.openweathermap.org/data/2.5/forecast?q=Wichita+Falls&id=524901&APPID=1e6b93b450b7a0a8169b59124b34994a&units=imperial',
+    url: 'https://api.openweathermap.org/data/2.5/forecast?q=Wichita+Falls&id=524901&APPID=1e6b93b450b7a0a8169b59124b34994a&units=imperial',
     type: "GET",
     success: function(response){
       weather = response;
