@@ -174,7 +174,7 @@ function getWeather() {
     type: "GET",
     success: function(response){
       weather = response;
-      console.log(weather);
+      // console.log(weather);
       for (let i = 0; i<weather.list.length; i++) {
         yTemps.push(weather.list[i]['main']['temp_max']); // add values to the end of the array;
         var utcSeconds = weather.list[i]['dt'];
@@ -229,4 +229,99 @@ function showWeather() {
 function scrollToMyWeather() {
   var elmnt = document.getElementById("myWeatherGraph");
   elmnt.scrollIntoView();
+}
+
+function scrollToMyPopulation() {
+  var elmnt = document.getElementById("myPopulationGraph");
+  elmnt.scrollIntoView();
+}
+
+var yPopulation = [];
+var xCities =[];
+var cityPopTable = []
+
+function getPopulation() {
+  Papa.parse("https://spcalvert78.github.io/dexterwebdev/popdata/PEP_2017_PEPANNRES_with_ann_sorted.csv",
+  {
+     download: true,
+     header: true,
+      complete: function(results) {
+        cityPopTable = results.data
+      }
+  });
+};
+
+getPopulation();
+
+// var minPopulation = 0;
+// var maxPopulation = 100000;
+
+// function othername() {
+//     var input = document.getElementById("userInput").value;
+//     alert(input);
+// }
+
+function createPopGraphSeries () {
+  var minPopulation = parseInt(document.getElementById("myMinPopulation").value);
+  var maxPopulation = parseInt(document.getElementById("myMaxPopulation").value);
+  for (i=0; i<cityPopTable.length; i++) {
+    if (cityPopTable[i]['respop72017'] > minPopulation - 1 &&
+        cityPopTable[i]['respop72017'] < maxPopulation + 1) {
+      yPopulation.push(cityPopTable[i]['respop72017']);
+      xCities.push(cityPopTable[i]['GEO.display-label']);
+    }
+  }
+  console.log(xCities);
+};
+
+var chosenCity = "Wichita Falls city, Texas" //document.getElementById("myCityInput").value;
+function makePopgraph() {
+ var trace = {
+    x: xCities,
+    y: yPopulation,
+    // marker:{
+    // color: ['blue', 'green', 'purple', 'red', 'black', 'pink', 'Yellow', 'Orange', 'White', 'Brown','Grey']
+  //},
+    type: 'bar'
+  };
+ var data = [ trace ];
+ var layout = {
+   autosize: true,
+   title: 'US Cities by Population',
+   annotations: [
+    {
+      x: chosenCity,
+      y: 105000,
+      xref: 'x',
+      yref: 'y',
+      text: "you are here",
+      showarrow: true,
+      arrowhead: 70,
+      ax: 0,
+      ay: -40
+    }
+  ],
+   xaxis: {
+    showticklabels: false,
+    title: {
+      text: 'Cities',
+      font: {
+        family: 'verdana',
+        size: 12,
+        color: '#7f7f7f'
+      }
+    },
+  },
+  yaxis: {
+    title: {
+      text: 'Population',
+      font: {
+        family: 'verdana',
+        size: 12,
+        color: '#7f7f7f'
+      }
+    }
+  }
+ }
+ Plotly.newPlot('myPopulationGraph', data, layout);
 }

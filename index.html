@@ -8,6 +8,7 @@
       integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
       crossorigin="anonymous">
     </script>
+    <script src="PapaParse-4.6.0\papaparse.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -89,12 +90,39 @@
           (what has happened under similar conditions in the past), meteorologists develop predictions about what
           will happen and assign probabilities to those outcomes.  The goal of someone who makes forecasts
           is not to be perfectly accurate (they will always fall short of a goal like that), but to minimize the variances between their predictions and the actual outcomes.
-          What do you think the weather will be like in the coming days?  How does your prediction compare to open weather man?</p>
+          What do you think the weather will be like in the next five days in Wichita Falls, Texas?  How does your prediction compare to open weather man?</p>
           <h5 class="postSource">
             <a href="https://openweathermap.org/">Open weather makes very simple and fast APIs to work with their vast weather database<br></a>
           </h5>
           <button class="button buttonother" onclick="showWeather(); scrollToMyWeather()">Show the forecast</button>
           <div id="myWeatherGraph" style="width: 100%; padding: 5px; margin-left: auto; margin-right: auto;">
+              <!-- Plotly chart will be drawn inside this DIV -->
+          </div>
+        </div>
+        <div class="card">
+          <h2 class="postTitle">Do you live in a small town?</h2>
+          <h5 class="postSubtitle">February 2019, Descriptive Analytics, Making Comparisons</h5>
+          <p>How can two people describe the same city as "small" and "big"?  It's usually a matter of perspective.  Maybe they have once lived in a major metropolitan city like New York.
+          Using that as a frame of reference will make any town seem small in comparison.  Maybe they grew up in a rural farming community.  Using that as a perspective most population centers would seem
+          large.  Data analysis and visualization can help add perspective and a better understanding of our world.  Input a population range and see where Wichita Falls, Texas sits in relation to cities across the United States.</p>
+          <h5 class="postSource">
+            <a href="C:\dexterwebdev\popdata\PEP_2017_PEPANNRES_with_ann.csv">Population Estimates 2017, US Census Bureau<br></a>
+          </h5>
+          <p style="font-size: 80%">Include populations from
+          <input type="value" id="myMinPopulation" value="10000" title="Include populations of at least">
+          to
+          <input type="value" id="myMaxPopulation" value="1000000" title="Include populations up to">
+          </p>
+          <!-- <button class="button buttonother" onclick="createPopGraphSeries()"> Create Time Series</button> -->
+          <!--<br><p style="font-size: 80%"> Enter your hometown here:
+          </p>
+          <form autocomplete="off" action="/action_page.php">
+            <div class="autocomplete" style="width:300px;">
+              <input id="myInput" type="text" name="myCountry" placeholder="Wichita Falls city, TX">
+            </div>
+          </form> -->
+          <button class="button buttonother" onclick="createPopGraphSeries(); makePopgraph()"> Make the Graph</button>
+          <div id="myPopulationGraph" style="width: 100%; padding: 5px; margin-left: auto; margin-right: auto;">
               <!-- Plotly chart will be drawn inside this DIV -->
           </div>
         </div>
